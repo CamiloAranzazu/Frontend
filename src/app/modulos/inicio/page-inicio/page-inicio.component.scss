@@ -1,0 +1,160 @@
+h1 {
+  font-weight: 500 !important;
+  margin: 15px !important;
+}
+
+h4 {
+  margin: 6px 0px 6px 0px !important;
+  line-height: 90%;
+}
+
+.precios {
+  display: flex;
+}
+
+.products {
+  display: flex; 
+  flex-wrap: wrap;
+}
+
+/*** Cards ***/
+.card {
+  .card-title {
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin: 5px 0px 5px 5px;
+  }
+  .card-text {
+    font-size: 0.85rem;
+  }  
+  &.card-product {
+    padding: 0;
+    margin: 10px;
+    border: none;
+    // background-color: #e0e0e0;
+    background-color: #eaeaea;
+    border-radius: 1rem;
+    box-shadow:3px 3px 6px rgba(128,128,128,.3),
+      -3px -3px 6px rgba(255,255,255,.3) !important;
+    overflow: hidden;
+    img {
+      opacity: 0.9;
+    }
+    &:hover {
+      background-color: #eaeaea;
+      box-shadow: 3px 3px 6px rgba(128,128,128,.5),
+      -3px -3px 6px rgba(255,255,255,.5) !important;
+      img {
+        opacity: 1;
+      }
+    }
+  }
+  .price {
+    display: inline-block;
+    font-size: 0.85rem;
+    .currency, .amount {
+      font-weight: bold;
+    }
+    .sale {
+      color: red;
+      text-decoration: line-through;
+      .currency, .amount {
+        font-weight: normal;
+      }
+    }
+  }
+  .card-body {
+    display: flex;
+    flex-flow: column;
+    align-items: stretch;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+}
+
+.car-buttons {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.car-buttons {
+  ::ng-deep {
+    .p-button {
+      background: linear-gradient(90deg, #7312db 0%, #8335D7 35%, #3B82F6 100%);
+      border: 0px;
+      margin: 10px 0px 10px 0px;
+      text-align: center;
+      min-width: 163px;
+    }
+  }
+}
+
+h6 {
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+}
+
+.dialog {
+  background-color: #eaeaea;
+}
+
+@media (min-width: 1px) and (max-width: 400px) {
+  .card {
+    width: 165px;
+  }
+}
+
+@media (min-width: 401px) and (max-width: 433px) {
+  .card {
+    width: 180px;
+  }
+}
+
+@media (min-width: 434px) and (max-width: 600px) {
+  .card {
+    width: 200px;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 700px) {
+  .card {
+    width: 250px;
+  }
+  h1 {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+  .products {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+@media (min-width: 701px) and (max-width: 800px) {
+  .card {
+    width: 250px;
+  }
+  h1 {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+  .products {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+@media (min-width: 801px) and (max-width: 2000px) {
+  .card {
+    width: 260px;
+  }
+  h1 {
+    padding-left: 6rem;
+    padding-right: 6rem;
+  }
+  .products {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+}

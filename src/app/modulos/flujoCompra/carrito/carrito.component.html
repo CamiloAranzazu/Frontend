@@ -1,0 +1,49 @@
+<app-nav-menu/>
+<h1 style="padding-top: 75px;">PRODUCTOS AGREGADOS</h1>
+<div style="width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; padding-bottom: 20px; padding-top: 20px;">
+    <p-button label="SOLICITAR COMPRA Y PAGA EN CASA" [disabled]="products.length === 0 ? true: false" icon="pi pi-arrow-circle-right" styleClass="p-button-warning" badgeClass="p-badge-danger"></p-button><br>
+    <p-tag class="p-tag-text" [value]="'TOTAL A PAGAR = '+(getTOTAL() | currency:'':'symbol':'1.0-0')" [severity]="'success'"></p-tag>
+</div>
+
+<div class="products">
+    @for (product of products; track $index) {
+        <div class="card card-product shadow-sm h-100">
+            <!-- <div class="cabecera">
+                <div class="precios">
+                    <p-tag class="p-tag-text" [value]="'Antes:'" [severity]="'danger'"></p-tag>
+                    <h2 class="card-title" style="text-decoration:line-through;">${{'200.000 COP'}}</h2>
+                </div>
+                <div class="precios">
+                    <h2 class="card-title">{{'$109.000 COP'}}</h2>
+                    <p-tag class="p-tag-text" [value]="'En Oferta'" [severity]="'success'"></p-tag>
+                </div>
+            </div> -->
+            <div class="card-description">
+                <img class="card-img-top" src='https://one4viceco.com/cdn/shop/products/NEGROBLANCOMILITAR_resultado_480x480.webp?v=1696894685' alt='' style="width: 100px; margin-right: 5px;">
+                <div>
+                    <h4>{{product.nombre || ''}}</h4>
+                    <h6>{{product.descripcion || ''}}</h6>
+                    <p-selectButton [options]="product.tallas" optionLabel="" optionValue=""></p-selectButton>
+                </div>
+            </div>
+            <div class="operaciones">
+                <div class="operaciones-btns">
+                    <p-tag *ngIf="product.cantidad > 1" class="p-tag-text" [value]="'-'" [severity]="'danger'" (click)="restarAlCarritoProducto(product)"></p-tag>
+                    <p-tag *ngIf="product.cantidad === 1" class="p-tag-text" [value]="'-'" [severity]="'danger'" (click)="eliminarProductoCar(product)"></p-tag>
+                    <h2 class="card-title" style="margin: 5px 15px 5px 15px;">{{product.cantidad || 0}}</h2>
+                    <p-tag class="p-tag-text" [value]="'+'" [severity]="'success'" (click)="sumarAlCarritoProducto(product)"></p-tag>
+                </div>
+                
+                <div class="precios">
+                    <!-- <p-tag class="p-tag-text" [value]="'SUBTOTAL: '+'$109.000 COP'" [severity]="'success'"></p-tag> -->
+                    <h2 class="card-title">{{'SUBTOTAL: '+(product.cantidad * (product.isCombo === true ? product.valueCombo : product.valueUnidad) | currency:'':'symbol':'1.0-0')}}</h2>
+                </div>
+            </div>
+        </div>
+    }
+    </div>
+
+    <div style="width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; padding-bottom: 50px; padding-top: 20px;">
+        <p-tag class="p-tag-text" [value]="'TOTAL A PAGAR = '+(getTOTAL() | currency:'':'symbol':'1.0-0')+ ' COP'" [severity]="'success'"></p-tag><br>
+        <p-button label="SOLICITAR COMPRA Y PAGA EN CASA" [disabled]="products.length === 0 ? true: false" icon="pi pi-arrow-circle-right" styleClass="p-button-warning" badgeClass="p-badge-danger"></p-button>
+    </div>

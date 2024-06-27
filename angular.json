@@ -27,8 +27,13 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               {
-                "glob": "**/*",
-                "input": "public"
+              "glob": "**/*",
+              "input": "public"
+              },
+              {
+              "glob": "**/*",
+              "input": "src/assets",
+              "output": "/assets"
               }
             ],
             "styles": [
@@ -103,5 +108,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "86c930db-9687-40b8-bc0e-c11e53f36b9e"
   }
 }

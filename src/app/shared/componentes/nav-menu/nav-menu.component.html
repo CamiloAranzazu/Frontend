@@ -1,0 +1,21 @@
+<nav class="navbar light-mode" [ngClass]="menu1 === true ? 'show-nav':''" role="navigation">
+    <button class="burger" (click)="menu1 = !menu1">
+      <span class="bar"></span>  
+    </button>   
+    <div class="navbar__logo">
+        <img src="assets/logo/logoNegroMayCloset.png" alt="" width="45" height="48">
+    </div>
+    <div class="navbar__logoLetras">
+        <img src="assets/logo/LogoMasLetras.png" alt="" width="120" height="53">
+    </div>
+    <ul class="navbar__links">
+        <!-- <li class="navbar__link first"><img src="assets/logo/LogoMasLetras.png" alt="" width="45" height="48"></li> -->
+      <li class="navbar__link second"><a >SUDADERAS</a></li>
+      <li class="navbar__link third"><a >CAMISETA OVERSIZE</a></li>
+    </ul>   
+    <div class="carrito">
+        <p-tag [value]="'PAGO CONTRAENTREGA!'" [severity]="'success'"></p-tag>
+        <i (click)="goCar()" class="pi pi-shopping-cart" style="font-size: 1.5rem; cursor: pointer;" pBadge [value]="getProductsLocalStorage(this.nameCompany)"></i>
+        <p-toast position="top-center" key="tc"></p-toast>
+    </div>
+</nav>
