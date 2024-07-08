@@ -54,6 +54,19 @@ export class LocalStorageService {
         })
     }
 
+    //Agregar un producto en el carrito exitente +
+    agregarTallaProductCarOliSoftLocalStorage(nameCompany: string, prod: Producto, talla: string) {
+        let products: any[] = this.getLocalStorageProductos(nameCompany);
+        products.forEach((producto: Producto, index) => {
+            if(producto.id === prod.id) {
+                producto.tallaSeleccionada = talla;
+            }
+            if(index === products.length-1) {
+                this.getLocalStorage()?.setItem(nameCompany+'CarOliSoftLocalStorage', JSON.stringify(products));
+            }
+        })
+    }
+
     //se resta un producto en el carrito exitente - mas no se elimina
     restarExistenteProductCarOliSoftLocalStorage(nameCompany: string, prod: Producto) {
         let products: any[] = this.getLocalStorageProductos(nameCompany);

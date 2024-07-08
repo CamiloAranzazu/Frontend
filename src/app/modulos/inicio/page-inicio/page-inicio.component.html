@@ -1,11 +1,11 @@
 <app-nav-menu/>
-<h1 style="padding-top: 75px;">SUDADERAS</h1>
+<h1 style="padding-top: 75px;">{{category || ''}}</h1>
 
 <div class="products">
 @for (product of products; track $index) {
     <div class="card card-product shadow-sm h-100" style="cursor: pointer;" (click)="addProductoCar(product)">
         <div class="precios">
-            <p-tag class="p-tag-text" [value]="'En Oferta'" [severity]="'success'"></p-tag>
+            <p-tag class="p-tag-text" [value]="'En Oferta'" [severity]="'warning'"></p-tag>
             <h2 class="card-title">{{'$109.000 COP'}}</h2>
         </div>
         <div style="position: relative;">
@@ -16,40 +16,16 @@
             <img class="card-img-top" src='https://one4viceco.com/cdn/shop/products/NEGROBLANCOMILITAR_resultado_480x480.webp?v=1696894685' alt='' style="width: 100%;">
         </div>
         <div class="card-body h-100">
-          <h4>SUDADERA X3 BOTA RECTA</h4>
-          <h6>(BLANCO, VERDE MILITAR, AZUL CIELO) TALLAS (XS, S, M)</h6>
+            <h4>{{product.nombre || ''}}</h4>
+            <h6>{{product.descripcion || ''}}</h6>
           <div class="card flex justify-content-center">
             <p-rating [cancel]="false" [(ngModel)]="estrellas" [readonly]="true" [cancel]="false"></p-rating>
             </div>
             <div class="precios">
-                <p-tag class="p-tag-text" [value]="'Antes:'" [severity]="'danger'"></p-tag>
                 <h2 class="card-title" style="text-decoration:line-through;">${{'200.000 COP'}}</h2>
             </div>
-            <!-- <div class="precios">
-                <p-tag class="p-tag-text" [value]="'Ahora:'" [severity]="'success'"></p-tag>
-                <h2 class="card-title">{{'$110.000 COP'}}</h2>
-            </div> -->
-            <!-- <div class="car-buttons">
-                <p-button type="button" styleClass="p-button-primary p-button-rounded mr-2" (click)="addCar(product)">
-                    <div style="font-size: 12px;">AGREGAR A CARRITO</div>
-                </p-button>
-            </div> -->
         </div>
     </div>
 }
 </div>
 <p-toast position="top-center" key="tc"></p-toast>
-
- 
-<!-- Dialogo de confirmacion -->
-<!-- <p-confirmDialog #cd [style]="{width: '340px'}">
-    <ng-template pTemplate="header">
-        <h3 style="margin: 0px;">Confirmar</h3>
-    </ng-template>
-    <ng-template pTemplate="footer">
-        <div style="display: flex; flex-wrap: nowrap;">
-            <button type="button" pButton label="Seguir viendo" (click)="cd.reject()"></button>
-            <p-button (click)="cd.accept()" icon="pi pi-check" label="Continuar con el producto seleccionado" styleClass="p-button-success"></p-button>
-        </div>
-    </ng-template>
-</p-confirmDialog>  -->

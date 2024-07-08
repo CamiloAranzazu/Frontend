@@ -1,0 +1,49 @@
+<div class="card">
+    <form [formGroup]="formSolicitud" autocomplete="off" (click)="createSolicitud()" *ngIf="solicitdado === false;">
+        <div class="flex-auto">
+            <span class="font-bold block mb-2">Nombre</span>
+            <input type="text" pInputText formControlName="nombre" />
+            <!-- <small id="username-help">Enter your username to reset your password.</small> -->
+        </div>
+        <div class="flex-auto">
+            <span class="font-bold block mb-2">Celular</span>
+            <p-inputMask mask="(999) 999-9999" formControlName="celular" ></p-inputMask>
+            <!-- <small id="username-help">Enter your username to reset your password.</small> -->
+        </div>
+        <div class="flex-auto">
+            <span class="font-bold block mb-2">Confirmación de celular</span>
+            <p-inputMask mask="(999) 999-9999" formControlName="celularConfirm" ></p-inputMask>
+            <small id="username-error" style="color: red;" *ngIf="formSolicitud.get('celular').value !== formSolicitud.get('celularConfirm').value">La confirmación no son iguales</small>
+        </div>
+        <div class="flex-auto comboxAutoslected">
+            <span class="font-bold block">Departamento</span>
+            <div class="card flex justify-content-center">
+                <p-autoComplete [dropdown]="true" [suggestions]="filteredDepartamentos" (onSelect)="changeDepartamento($event)" (completeMethod)="filterDepartamentos($event)" field="departamento"></p-autoComplete>
+            </div>
+        </div>
+        <div class="flex-auto comboxAutoslected">
+            <span class="font-bold block">Ciudad</span>
+            <p-autoComplete formControlName="ciudad" [dropdown]="true" [suggestions]="filteredCiudades" (completeMethod)="filterCiudades($event)" field="nombre"></p-autoComplete>
+        </div>
+        <div class="flex-auto">
+            <span class="font-bold block mb-2">Dirección</span>
+            <input type="text" pInputText formControlName="direccion" />
+            <!-- <small id="username-help">Enter your username to reset your password.</small> -->
+        </div>
+        <p-button (onClick)="solicitar()" label="SOLICITAR COMPRA Y PAGA EN CASA" [disabled]="formSolicitud.status === 'VALID' ? false: true" icon="pi pi-arrow-circle-right" styleClass="p-button-warning" badgeClass="p-badge-danger"></p-button><br>
+    </form>
+
+    <div class="successConfirmation" *ngIf="solicitdado === true;">
+        <h3> Gracias por solicitar nuestros servicios✅</h3>
+        Nos comunicaremos contigo lo más pronto por mensaje whatsapp para 
+        verificar los datos de envio y producto. 
+        Si desea modificar algo por alli lo puede hacer.
+    </div>
+    @if (solicitdado === true) {
+        @for (item of departamentos; track $index) {
+            <div class="confeti"></div>
+        }
+    }
+    
+    
+</div>

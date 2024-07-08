@@ -1,8 +1,12 @@
 <app-nav-menu/>
 <h1 style="padding-top: 75px;">PRODUCTOS AGREGADOS</h1>
 <div style="width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; padding-bottom: 20px; padding-top: 20px;">
-    <p-button label="SOLICITAR COMPRA Y PAGA EN CASA" [disabled]="products.length === 0 ? true: false" icon="pi pi-arrow-circle-right" styleClass="p-button-warning" badgeClass="p-badge-danger"></p-button><br>
-    <p-tag class="p-tag-text" [value]="'TOTAL A PAGAR = '+(getTOTAL() | currency:'':'symbol':'1.0-0')" [severity]="'success'"></p-tag>
+    <div class="btnPay">
+        <p-button (onClick)="solicitar()" label="SOLICITAR COMPRA Y PAGA EN CASA" [disabled]="products.length === 0 ? true: false" icon="pi pi-arrow-circle-right" styleClass="p-button-warning" badgeClass="p-badge-danger"></p-button><br>
+    </div>
+    <div class="textTotal">
+        <p-tag class="p-tag-text" [value]="'TOTAL A PAGAR = '+(getTOTAL() | currency:'':'symbol':'1.0-0')" [severity]="'success'"></p-tag>
+    </div>
 </div>
 
 <div class="products">
@@ -23,7 +27,7 @@
                 <div>
                     <h4>{{product.nombre || ''}}</h4>
                     <h6>{{product.descripcion || ''}}</h6>
-                    <p-selectButton [options]="product.tallas" optionLabel="" optionValue=""></p-selectButton>
+                    <p-selectButton [options]="product.tallas" optionLabel="" (onChange)="changeTalla(product, $event.value)" [(ngModel)]="product.tallaSeleccionada" optionValue=""></p-selectButton>
                 </div>
             </div>
             <div class="operaciones">
@@ -41,9 +45,15 @@
             </div>
         </div>
     }
-    </div>
+</div>
 
-    <div style="width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; padding-bottom: 50px; padding-top: 20px;">
-        <p-tag class="p-tag-text" [value]="'TOTAL A PAGAR = '+(getTOTAL() | currency:'':'symbol':'1.0-0')+ ' COP'" [severity]="'success'"></p-tag><br>
-        <p-button label="SOLICITAR COMPRA Y PAGA EN CASA" [disabled]="products.length === 0 ? true: false" icon="pi pi-arrow-circle-right" styleClass="p-button-warning" badgeClass="p-badge-danger"></p-button>
-    </div>
+<div class="preloader" *ngIf="products.length === 0">
+    <div class="first"></div>
+    <div class="second"></div>
+    <div class="third"></div>
+</div>
+
+
+<p-sidebar [(visible)]="confirmacionTallas" position="bottom">
+    <h3>{{'DEBES SELECCIONAR LA TALLA ANTES DE CONTINUAR'}}</h3>
+</p-sidebar>

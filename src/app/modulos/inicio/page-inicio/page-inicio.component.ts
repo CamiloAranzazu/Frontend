@@ -1,6 +1,5 @@
 import { CommonModule, DOCUMENT } from '@angular/common';
 import { Component, Inject, OnInit } from '@angular/core';
-import { NavMenuComponent } from '../../../shared/componentes/nav-menu/nav-menu.component';
 import { CarouselModule } from 'primeng/carousel';
 import { TagModule } from 'primeng/tag';
 import { ButtonModule } from 'primeng/button';
@@ -13,6 +12,7 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { LocalStorageService } from '../../../core/services/localStorage.service';
 import { Producto } from '../../../core/interfaces/product';
 import { Router } from '@angular/router';
+import { NavMenuComponent } from '../../../shared/componentsCommons/nav-menu/nav-menu.component';
 
 @Component({
   selector: 'app-page-inicio',
@@ -27,6 +27,7 @@ export class PageInicioComponent implements OnInit {
   nameCompany: string = '';
 
   estrellas: number = 5;
+  category: string = 'TODOS-LOS-PRODUCTOS';
   localStorage: any;
 
   products: Producto[] = [];
@@ -43,8 +44,15 @@ export class PageInicioComponent implements OnInit {
     ngOnInit() {
       this.route.params.subscribe(params => {
         this.nameCompany = params['nameCompany'];
+        if(params['category']) {
+          let cat: string = params['category'];
+          console.log('car',cat);
+          this.category = cat.replaceAll("-", " ");
+          // metodo refresc productos por categoria
+        }
         this.localStorageService.exitCarOliSoftLocalStorage(this.nameCompany);
      });
+     
      this.products = [
       {
         id: 1,
@@ -60,7 +68,8 @@ export class PageInicioComponent implements OnInit {
         valueUnidad: 30000,
         tallaUnica: false,
         tallas: ['XS','S','N'],
-        cantidad: 1
+        cantidad: 1,
+        tallaSeleccionada: ''
       },
       {
         id: 2,
@@ -76,7 +85,8 @@ export class PageInicioComponent implements OnInit {
         valueUnidad: 30000,
         tallaUnica: false,
         tallas: ['XS','N'],
-        cantidad: 1
+        cantidad: 1,
+        tallaSeleccionada: ''
       },
       {
         id: 3,
@@ -92,7 +102,8 @@ export class PageInicioComponent implements OnInit {
         valueUnidad: 30000,
         tallaUnica: false,
         tallas: ['XS','N', 'M'],
-        cantidad: 1
+        cantidad: 1,
+        tallaSeleccionada: ''
       },
       {
         id: 4,
@@ -108,7 +119,8 @@ export class PageInicioComponent implements OnInit {
         valueUnidad: 30000,
         tallaUnica: false,
         tallas: ['XS','S','N'],
-        cantidad: 1
+        cantidad: 1,
+        tallaSeleccionada: ''
       },
       {
         id: 5,
@@ -124,7 +136,8 @@ export class PageInicioComponent implements OnInit {
         valueUnidad: 30000,
         tallaUnica: false,
         tallas: ['XS','N'],
-        cantidad: 1
+        cantidad: 1,
+        tallaSeleccionada: ''
       },
       {
         id: 6,
@@ -140,7 +153,8 @@ export class PageInicioComponent implements OnInit {
         valueUnidad: 30000,
         tallaUnica: false,
         tallas: ['XS','N', 'M'],
-        cantidad: 1
+        cantidad: 1,
+        tallaSeleccionada: ''
       }
     ];
     }

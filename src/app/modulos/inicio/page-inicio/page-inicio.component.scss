@@ -33,7 +33,7 @@ h4 {
     margin: 10px;
     border: none;
     // background-color: #e0e0e0;
-    background-color: #eaeaea;
+    background-color: #F8FAFC;
     border-radius: 1rem;
     box-shadow:3px 3px 6px rgba(128,128,128,.3),
       -3px -3px 6px rgba(255,255,255,.3) !important;
@@ -42,7 +42,7 @@ h4 {
       opacity: 0.9;
     }
     &:hover {
-      background-color: #eaeaea;
+      background-color: #F8FAFC;
       box-shadow: 3px 3px 6px rgba(128,128,128,.5),
       -3px -3px 6px rgba(255,255,255,.5) !important;
       img {
@@ -89,6 +89,13 @@ h4 {
     }
   }
 }
+
+.precios {
+  ::ng-deep .p-tag {
+    background-color: #ffaf29 !important;
+  }
+}
+
 
 h6 {
   margin-block-start: 0em;
