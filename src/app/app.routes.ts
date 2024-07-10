@@ -13,5 +13,10 @@ export const routes: Routes = [
     {
         path: 'page/login',
         loadChildren: () => import('./modulos/autenticacion/autenticacion.routes').then(m => m.AUTENTICACION_ROUTES)
+    },
+    {
+        path: 'page/administrador',
+        loadChildren: () => import('./modulos/administrador/administrador.routes').then(m => m.ADMINISTRADOR_ROUTES)
     }
+
 ];
