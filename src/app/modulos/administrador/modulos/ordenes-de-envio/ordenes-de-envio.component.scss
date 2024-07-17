@@ -24,7 +24,7 @@ $dark: #342E37;
 $red: #DB504A;
 $greend: #DB504A;
 $morado: #6140DC;
-$light-morado: #8C85F7;
+$light-morado: #cbc8fb;
 $yellow: #FFCE26;
 $light-yellow: #FFF2C6;
 $orange: #FD7238;
@@ -113,16 +113,16 @@ $light-orange: #FFE0D3;
     align-items: center;
   }
   #content main .box-info li:nth-child(1) .bx {
-    background: $light-blue;
-    color: $blue;
+    background: $light-orange;
+    color: $orange;
   }
   #content main .box-info li:nth-child(2) .bx {
     background: $light-yellow;
     color: $yellow;
   }
   #content main .box-info li:nth-child(3) .bx {
-    background: $light-orange;
-    color: $orange;
+    background: $light-blue;
+    color: $blue;
   }
   #content main .box-info li:nth-child(4) .bx {
     background: $light-morado;
@@ -178,17 +178,20 @@ $light-orange: #FFE0D3;
     border-collapse: collapse;
   }
   #content main .table-data .order table th {
-    padding-bottom: 12px;
+    padding: 12px;
     font-size: 13px;
     text-align: left;
     border-bottom: 1px solid $grey;
+    text-align: center;
   }
   #content main .table-data .order table td {
-    padding: 16px 0;
+    padding: 12px;
+    font-size: 12px;
+    text-align: center;
   }
   #content main .table-data .order table tr td:first-child {
-    display: flex;
-    align-items: center;
+    // display: flex;
+    // align-items: center;
     grid-gap: 12px;
     padding-left: 6px;
   }
@@ -209,7 +212,7 @@ $light-orange: #FFE0D3;
     font-weight: 700;
   }
   #content main .table-data .order table tr td .status.completed {
-    background: $blue;
+    background: $orange;
   }
   #content main .table-data .order table tr td .status.process {
     background: $yellow;
@@ -249,3 +252,75 @@ $light-orange: #FFE0D3;
     margin-bottom: 0;
   }
   /* MAIN */
+
+
+
+ /* TABLA ORDENS */
+  
+  .userOrder {
+    display: flex;
+    align-items: center;
+    min-width: 180px;
+    img {
+      margin-right: 3px;
+    }
+  }
+  .userDestinatario {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .listData {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .chipsEstados {
+    font-size: 10px;
+    padding: 6px 16px;
+    color: white;
+    border-radius: 20px;
+    font-weight: 700;
+  }
+
+  .btnsEstados {
+    font-size: 10px;
+    padding: 6px 16px;
+    color: white;
+    border-radius: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+
+  .costos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 180px;
+  }
+
+
+  /* TABLA ORDENS */
+
+  // colores estados
+
+  .orange {
+    background-color: $orange;
+  }
+
+  .red {
+    background-color: $red;
+  }
+
+  .yellow {
+    background-color: $yellow;
+  }
+
+  .blue {
+    background-color: $blue;
+  }
+
+  .morado {
+    background-color: $morado;
+  }
