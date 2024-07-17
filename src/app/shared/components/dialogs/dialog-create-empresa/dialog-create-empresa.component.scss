@@ -1,0 +1,70 @@
+form{
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.flex-auto {
+    margin: 10px 10px 10px 0px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+::ng-deep .p-inputtext {
+    margin: 0;
+    min-width: 304px;
+}
+
+.comboxAutoslected {
+    ::ng-deep .p-inputtext {
+        margin: 0;
+        min-width: 255px;
+    }
+}
+
+::ng-deep .p-autoComplete {
+    margin: 0;
+    min-width: 200px;
+    max-width: 200px;
+}
+
+$size:6px;
+.confeti{
+  width: $size;
+  height: $size;
+  position: absolute;
+  background: brown;
+  bottom: 268px;
+  left: 50%;
+  opacity: 0;
+  border: 50%;
+  animation: pop 4s infinite ease-in reverse;
+  $colors: red, green, blue, orange;
+  @for $i from 2 through 201{
+    &:nth-child(#{$i}){
+      $x: random() * 50vw;
+      transform: translateX($x) rotate(130deg);
+      background: nth($colors, random(4));
+      
+      $originX: random() * 15vw + 15vw;
+      @if(random() > 0.5){
+        $originX: $originX * -1;
+        transform: translateX(-$x) rotate(-200deg);
+      }
+      transform-origin: $originX 0;
+      
+      animation-duration: random() * 2s + 2s;
+      animation-delay: random() * -4s;
+      
+    }
+  }
+}
+
+@keyframes pop{
+  100%{
+    transform: none;
+    opacity: 1;
+  }
+}
+

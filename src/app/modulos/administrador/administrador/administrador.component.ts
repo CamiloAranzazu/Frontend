@@ -15,7 +15,7 @@ export class AdministradorComponent implements OnInit, OnDestroy {
 
   menu: any[] = [
     {nombre: 'DASBOARD', url: '/page/administrador/dasboardDeEnvio', icon: 'bx bxs-dashboard', permiso: 'dasboardDeEnvio'},
-    {nombre: 'EMPRESAS', url: '/page/administrador/dasboardDeEnvio', icon: 'bx bx-buildings', permiso: 'empresas'},
+    {nombre: 'EMPRESAS', url: '/page/administrador/empresas', icon: 'bx bx-buildings', permiso: 'empresas'},
     {nombre: 'ORDENES DE ENVIO', url: '/page/administrador/ordenDeEnvio', icon: 'bx bxs-shopping-bag-alt', permiso: 'dasboardDeEnvio'},
     {nombre: 'CONTABILIDAD DE ENVIO', url: '/page/administrador/contabilidadDeEnvio', icon: 'bx bxs-doughnut-chart', permiso: 'dasboardDeEnvio'}
   ]

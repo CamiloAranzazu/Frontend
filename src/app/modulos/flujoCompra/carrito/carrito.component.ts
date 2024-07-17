@@ -85,7 +85,7 @@ export class CarritoComponent {
             console.log(data);
         }
     });
-}
+  }
 
 
   changeTalla(product: Producto, valueTalla: any) {
