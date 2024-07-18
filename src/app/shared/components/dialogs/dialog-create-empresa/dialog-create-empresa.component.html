@@ -1,5 +1,5 @@
 <div class="card">
-    <form [formGroup]="formSolicitud" autocomplete="off" (click)="createSolicitud()" *ngIf="solicitdado === false;">
+    <form [formGroup]="formEmpresa" autocomplete="off" (click)="createSolicitud()" *ngIf="solicitdado === false;">
         <div class="flex-auto">
             <span class="font-bold block mb-2">Nombre</span>
             <input type="text" pInputText formControlName="nombre" />
@@ -17,12 +17,12 @@
         <div class="flex-auto comboxAutoslected">
             <span class="font-bold block">Departamento</span>
             <div class="card flex justify-content-center">
-                <p-autoComplete [dropdown]="true" [suggestions]="filteredDepartamentos" (onSelect)="changeDepartamento($event)" (completeMethod)="filterDepartamentos($event)" field="departamento"></p-autoComplete>
+                <p-autoComplete formControlName="departamento" field="departamento" optionValue="departamento" [dropdown]="true" [suggestions]="filteredDepartamentos" (onSelect)="changeDepartamento($event)" (completeMethod)="filterDepartamentos($event)" ></p-autoComplete>
             </div>
         </div>
         <div class="flex-auto comboxAutoslected">
             <span class="font-bold block">Ciudad</span>
-            <p-autoComplete formControlName="ciudad" [dropdown]="true" [suggestions]="filteredCiudades" (completeMethod)="filterCiudades($event)" field="nombre"></p-autoComplete>
+            <p-autoComplete formControlName="ciudad" field="nombre" optionValue="nombre" [dropdown]="true" [suggestions]="filteredCiudades" (completeMethod)="filterCiudades($event)" ></p-autoComplete>
         </div>
         <div class="flex-auto">
             <span class="font-bold block mb-2">Dirección</span>
@@ -30,7 +30,7 @@
             <!-- <small id="username-help">Enter your username to reset your password.</small> -->
         </div>
     </form>
-    <p-button (onClick)="solicitar()" label="CREAR EMPRESA" [disabled]="formSolicitud.status === 'VALID' ? false: true" icon="pi pi-arrow-circle-right" styleClass="p-button-warning" badgeClass="p-badge-danger"></p-button><br>
+    <p-button (onClick)="solicitar()" label="{{config.data.edit === true ? 'ACTUALIZAR': 'CREAR'}}" [disabled]="formEmpresa.status === 'VALID' ? false: true" icon="pi pi-arrow-circle-right" styleClass="p-button-warning" badgeClass="p-badge-danger"></p-button><br>
     
     
 </div>

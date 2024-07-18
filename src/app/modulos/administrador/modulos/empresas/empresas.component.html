@@ -13,7 +13,7 @@
               </li>
             </ul>
           </div>
-          <a  class="btn-add" (click)="show()">
+          <a  class="btn-add" (click)="this.show(false)">
             <i class='bx bxs-add-to-queue' ></i>
             <span class="text">CREAR EMPRESA</span>
           </a>
@@ -28,10 +28,12 @@
               <i class='bx bx-plus' ></i>
               <i class='bx bx-filter' ></i>
             </div>
+            
             <ul class="todo-list">
               <li class="completed">
                 <p>Empresa</p>
-                <i class='bx bx-dots-vertical-rounded' ></i>
+                <p-menu #menu [model]="items" [popup]="true"></p-menu>
+                <i class='bx bx-dots-vertical-rounded' (click)="menu.toggle($event)"></i>
               </li>
               <li class="completed">
                 <p>Empresa</p>
