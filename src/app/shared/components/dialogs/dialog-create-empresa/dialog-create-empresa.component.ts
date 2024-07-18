@@ -41,8 +41,8 @@ export class DialogCreateEmpresaComponent {
   ngOnInit() {
     this.formSolicitud = this.fb.group({
       nombre: new FormControl('',Validators.required),
+      email: new FormControl('',[Validators.required, Validators.email]),
       celular: new FormControl('',Validators.required),
-      celularConfirm: new FormControl('',Validators.required),
       ciudad: new FormControl('',Validators.required),
       direccion: new FormControl('',Validators.required)
     });
