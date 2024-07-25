@@ -30,10 +30,11 @@
             </div>
             
             <ul class="todo-list">
+              
               <li class="completed">
                 <p>Empresa</p>
-                <p-menu #menu [model]="items" [popup]="true"></p-menu>
-                <i class='bx bx-dots-vertical-rounded' (click)="menu.toggle($event)"></i>
+                <p-menu #menu2 appendTo="body" [model]="items" [popup]="true"></p-menu>
+                <i class='bx bx-dots-vertical-rounded' (click)="menu2.toggle($event)"></i>
               </li>
               <li class="completed">
                 <p>Empresa</p>

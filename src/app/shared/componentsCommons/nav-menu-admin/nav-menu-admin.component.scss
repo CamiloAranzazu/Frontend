@@ -256,8 +256,15 @@ $color: #b3e5fc;
 }
 
 
-
-
+.menuPadre {
+  width: 30px !important;
+  // background-color: #3C91E6 !important;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
 
 .btnMenu{
   
