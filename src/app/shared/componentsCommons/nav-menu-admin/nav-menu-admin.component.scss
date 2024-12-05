@@ -17,7 +17,7 @@ li {
 $poppins: 'Poppins', sans-serif;
 $lato: 'Lato', sans-serif;
 $light: #F9F9F9;
-$blue: #3C91E6;
+$blue: #362A89;
 $light-blue: #CFE8FF;
 $grey: #eee;
 $dark-grey: #AAAAAA;
@@ -126,6 +126,7 @@ $light-orange: #FFE0D3;
     height: 36px;
     object-fit: cover;
     border-radius: 50%;
+    cursor: pointer;
   }
   #content nav .switch-mode {
     display: block;
@@ -205,7 +206,7 @@ $light-orange: #FFE0D3;
     }
   
     #content {
-      width: calc(100% - 60px);
+      // width: calc(100% - 60px);
       left: 200px;
     }
   
@@ -296,6 +297,13 @@ $color: #b3e5fc;
   }
   &:hover {
     cursor: pointer;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .menuPadre {
+    display: none;
   }
 }
 

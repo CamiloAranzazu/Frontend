@@ -6,13 +6,13 @@ import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, 
 import { toast } from 'ngx-sonner';
 
 @Component({
-  selector: 'app-login',
+  selector: 'app-sign-up',
   standalone: true,
   imports: [CommonModule, FormsModule ,ReactiveFormsModule],
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+  templateUrl: './sign-up.component.html',
+  styleUrl: './sign-up.component.scss'
 })
-export class LoginComponent {
+export class SignUpComponent {
   status = false;
 
   formLogin?: FormGroup | any;
@@ -24,30 +24,14 @@ export class LoginComponent {
     });
   }
 
-  isPasswordVisible: boolean = false;  // Estado para saber si la contraseña está visible
-
-  togglePasswordVisibility() {
-    console.log('gkajs');
-    this.isPasswordVisible = !this.isPasswordVisible;
-  }
-
-  addToggle() {
-    this.status = !this.status;       
-  }
-
-  // login() {
-  //   this.router.navigate(['page/administrador/dasboardDeEnvio'])
-  // }
-
-  async signIn(){
+  async signUp(){
     let payload = {
       email: this.formLogin.controls.Correo.value,
       password: this.formLogin.controls.Password.value
     }
     try {
-      await this.authService.signIn(payload);
-      toast.success('Creado correctamente!')
-      this.router.navigate(['page/administrador/dasboardDeEnvio']);
+      await this.authService.signUp(payload);
+      toast.success('Creado correctamente!');
     } catch (error: any) {
       const errorCode = error.code;
       if(errorCode === 'auth/email-already-in-use') {
@@ -55,13 +39,9 @@ export class LoginComponent {
       } else {
         toast.error('A ocurrido un error!')
       }
-      // 
     }
     
   }
-
-
-
 
 
 }

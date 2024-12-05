@@ -1,0 +1,38 @@
+<div class="background">
+  <div class="bola1"></div>
+  <div class="bola3"></div>
+</div>
+<div class="login">
+  <div class="login-container">
+    <h2>Crear Usuario</h2>
+    <form [formGroup]="formLogin" autocomplete="off">
+      <div class="input-group">
+        <input
+          type="text"
+          formControlName="Correo"
+          autocomplete="off"
+          id="username"
+          name="username"
+          required
+        />
+        <label for="username">Correo</label>
+      </div>
+      <div class="input-group">
+        <input
+          type="password"
+          formControlName="Password"
+          autocomplete="new-password"
+          id="password"
+          name="password"
+          required
+        />
+        <label for="password">Contraseña</label>
+      </div>
+      <button type="button" (click)="signUp()">Crear</button>
+    </form>
+  </div>
+</div>
+
+<!-- $primary: #6D58FF;
+$primary-dark: #362A89; -->
+<!-- F6F8FF -->

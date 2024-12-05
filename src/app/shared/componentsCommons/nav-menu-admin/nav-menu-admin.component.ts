@@ -1,11 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Output } from '@angular/core';
+import { Router } from '@angular/router';
+import { MenuItem } from 'primeng/api';
+import { MenuModule } from 'primeng/menu';
 import { BehaviorSubject, debounceTime, fromEvent, Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-nav-menu-admin',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, MenuModule],
   templateUrl: './nav-menu-admin.component.html',
   styleUrl: './nav-menu-admin.component.scss'
 })
@@ -17,7 +20,9 @@ export class NavMenuAdminComponent {
   public innerWidth: any;
   @Output() clickOpcion = new EventEmitter();
 
-  constructor() {
+  items: MenuItem[] = [];
+  
+  constructor(private router: Router) {
     // fromEvent(window, 'resize')
     // .pipe(
     //   debounceTime(1000),
@@ -35,12 +40,35 @@ export class NavMenuAdminComponent {
   }
 
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.items = [
+      {
+          label: 'Configuracion',
+          icon: 'bx bxs-cog',
+          command: () => {
+              // this.show(true, this.dataEdit);
+          }
+      },
+      {
+          label: 'Cerrar Sesion',
+          icon: 'bx bxs-log-out-circle',
+          command: () => {
+              this.cerrarSesion();
+          }
+      },
+      // { label: 'Angular.io', icon: 'pi pi-info', url: 'http://angular.io' },
+      // { separator: true },
+      // { label: 'Setup', icon: 'pi pi-cog', routerLink: ['/setup'] }
+  ];
   }
   
   addToggle() {
     this.toglle = !this.toglle;
     this.clickOpcion.emit();
+  }
+
+  cerrarSesion() {
+    this.router.navigate(['page/login']);
   }
 
 }

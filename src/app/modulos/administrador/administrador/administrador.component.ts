@@ -20,7 +20,7 @@ export class AdministradorComponent implements OnInit, OnDestroy {
     {nombre: 'CONTABILIDAD DE ENVIO', url: '/page/administrador/contabilidadDeEnvio', icon: 'bx bxs-doughnut-chart', permiso: 'dasboardDeEnvio'}
   ]
 
-  status = false;
+  status = true;
 
   public subscriber: Subscription | any;
 
@@ -49,6 +49,11 @@ export class AdministradorComponent implements OnInit, OnDestroy {
 
   goRouter(ruta: string) {
     this.router.navigate([ruta]);
+  }
+
+
+  cerrarSesion() {
+    this.router.navigate(['page/login']);
   }
 
   

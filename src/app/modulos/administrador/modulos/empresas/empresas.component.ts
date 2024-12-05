@@ -5,6 +5,7 @@ import { MenuItem } from 'primeng/api';
 import { MenuModule } from 'primeng/menu';
 import { CommonModule } from '@angular/common';
 import { DialogConfirmacionComponent } from '../../../../shared/components/dialogs/dialog-confirmacion/dialog-confirmacion.component';
+import { EmpresaService } from '../../../../core/services/modules/empresa.service';
 
 @Component({
   selector: 'app-empresas',
@@ -31,8 +32,11 @@ export class EmpresasComponent implements OnInit {
 
     items: MenuItem[] = [];
   
-  constructor(public dialogService: DialogService) {
-
+  constructor(
+    public dialogService: DialogService,
+    private empresaService: EmpresaService
+  ) {
+    this.getEmployer();
   }
 
   ngOnInit(): void {
@@ -54,7 +58,14 @@ export class EmpresasComponent implements OnInit {
       // { label: 'Angular.io', icon: 'pi pi-info', url: 'http://angular.io' },
       // { separator: true },
       // { label: 'Setup', icon: 'pi pi-cog', routerLink: ['/setup'] }
-  ];
+    ];
+  }
+
+  getEmployer() {
+    console.log('getEmpresas',this.empresaService.getEmployer());
+    this.empresaService.getEmployer().subscribe(empresa => {
+      console.log(empresa);
+    })
   }
 
   show(edit?: boolean, data?: any) {
