@@ -1,0 +1,41 @@
+<section id="content">
+  <main>
+    <div class="head-title">
+      <div class="left">
+        <h1>USUARIOS</h1>
+        <ul class="breadcrumb">
+          <li>
+            <a>USUARIOS</a>
+          </li>
+          <li><i class="bx bx-chevron-right"></i></li>
+          <li>
+            <a class="active">USUARIOS</a>
+          </li>
+        </ul>
+      </div>
+      <a class="btn-add" (click)="this.show(false)">
+        <i class="bx bxs-add-to-queue"></i>
+        <span class="text">CREAR EMPRESA</span>
+      </a>
+    </div>
+
+    <div class="table-data">
+      <div class="todo">
+        <div class="head">
+          <h3>USUARIOS</h3>
+          <i class="bx bx-plus"></i>
+          <i class="bx bx-filter"></i>
+        </div>
+
+        <ul class="todo-list">
+          @for (usuario of usuarios; track $index) {
+          <li class="completed">
+            <p>{{ usuario.nombre }} {{ usuario.apellido }}</p>
+            <i class="bx bx-dots-vertical-rounded"></i>
+          </li>
+          }
+        </ul>
+      </div>
+    </div>
+  </main>
+</section>

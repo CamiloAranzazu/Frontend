@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { NavMenuAdminComponent } from '../../../shared/componentsCommons/nav-menu-admin/nav-menu-admin.component';
 import { ActivatedRoute, NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { filter, Subscription } from 'rxjs';
@@ -17,7 +17,9 @@ export class AdministradorComponent implements OnInit, OnDestroy {
     {nombre: 'DASBOARD', url: '/page/administrador/dasboardDeEnvio', icon: 'bx bxs-dashboard', permiso: 'dasboardDeEnvio'},
     {nombre: 'EMPRESAS', url: '/page/administrador/empresas', icon: 'bx bx-buildings', permiso: 'empresas'},
     {nombre: 'ORDENES DE ENVIO', url: '/page/administrador/ordenDeEnvio', icon: 'bx bxs-shopping-bag-alt', permiso: 'dasboardDeEnvio'},
-    {nombre: 'CONTABILIDAD DE ENVIO', url: '/page/administrador/contabilidadDeEnvio', icon: 'bx bxs-doughnut-chart', permiso: 'dasboardDeEnvio'}
+    {nombre: 'CONTABILIDAD DE ENVIO', url: '/page/administrador/contabilidadDeEnvio', icon: 'bx bxs-doughnut-chart', permiso: 'dasboardDeEnvio'},
+    {nombre: 'USUARIOS', url: '/page/administrador/usuarios', icon: 'bx bx-user', permiso: 'dasboardDeEnvio'}
+
   ]
 
   status = true;
@@ -56,5 +58,7 @@ export class AdministradorComponent implements OnInit, OnDestroy {
     this.router.navigate(['page/login']);
   }
 
+
+  
   
 }

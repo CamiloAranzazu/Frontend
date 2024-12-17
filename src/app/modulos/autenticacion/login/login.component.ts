@@ -27,7 +27,6 @@ export class LoginComponent {
   isPasswordVisible: boolean = false;  // Estado para saber si la contraseña está visible
 
   togglePasswordVisibility() {
-    console.log('gkajs');
     this.isPasswordVisible = !this.isPasswordVisible;
   }
 
@@ -46,7 +45,7 @@ export class LoginComponent {
     }
     try {
       await this.authService.signIn(payload);
-      toast.success('Creado correctamente!')
+      toast.success('Logueado correctamente!');
       this.router.navigate(['page/administrador/dasboardDeEnvio']);
     } catch (error: any) {
       const errorCode = error.code;

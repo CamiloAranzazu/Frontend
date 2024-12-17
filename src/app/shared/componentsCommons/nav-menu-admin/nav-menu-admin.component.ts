@@ -1,9 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuItem } from 'primeng/api';
 import { MenuModule } from 'primeng/menu';
 import { BehaviorSubject, debounceTime, fromEvent, Subject, takeUntil } from 'rxjs';
+import { AuthService } from '../../../core/services/modules/auth.service';
+import { toast } from 'ngx-sonner';
 
 @Component({
   selector: 'app-nav-menu-admin',
@@ -13,6 +15,8 @@ import { BehaviorSubject, debounceTime, fromEvent, Subject, takeUntil } from 'rx
   styleUrl: './nav-menu-admin.component.scss'
 })
 export class NavMenuAdminComponent {
+
+  private authService = inject(AuthService);
   private _unsubscriber$: Subject<any> = new Subject();
   public screenWidth$: BehaviorSubject<any> = new BehaviorSubject(null);
 
@@ -23,20 +27,6 @@ export class NavMenuAdminComponent {
   items: MenuItem[] = [];
   
   constructor(private router: Router) {
-    // fromEvent(window, 'resize')
-    // .pipe(
-    //   debounceTime(1000),
-    //   takeUntil(this._unsubscriber$)
-    // ).subscribe((evt: any) => {
-    //   this._setScreenWidth(evt.target.innerWidth);
-    //   // this._setMediaBreakpoint(evt.target.innerWidth);
-    // });
-  }
-
-  private _setScreenWidth(width: number): void {
-    this.screenWidth$.next(width);
-    console.log('this.screenWidth$',this.screenWidth$);
-    console.log('width',width);
   }
 
 
@@ -53,7 +43,7 @@ export class NavMenuAdminComponent {
           label: 'Cerrar Sesion',
           icon: 'bx bxs-log-out-circle',
           command: () => {
-              this.cerrarSesion();
+              this.onSignUp();
           }
       },
       // { label: 'Angular.io', icon: 'pi pi-info', url: 'http://angular.io' },
@@ -67,8 +57,18 @@ export class NavMenuAdminComponent {
     this.clickOpcion.emit();
   }
 
-  cerrarSesion() {
-    this.router.navigate(['page/login']);
+  onSignUp(): void {
+    this.authService
+      .signOut()
+      .then(() => {
+        this.router.navigate(['page/login']);
+        toast.success('Sesion cerrada!');
+      })
+      .catch((error) => {
+        console.error(error);
+        // this.errorMessage = error.message;
+      });
   }
+
 
 }

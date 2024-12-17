@@ -24,6 +24,16 @@ export class SignUpComponent {
     });
   }
 
+  isPasswordVisible: boolean = false;  // Estado para saber si la contraseña está visible
+
+  togglePasswordVisibility() {
+    this.isPasswordVisible = !this.isPasswordVisible;
+  }
+
+  addToggle() {
+    this.status = !this.status;       
+  }
+
   async signUp(){
     let payload = {
       email: this.formLogin.controls.Correo.value,
@@ -43,5 +53,19 @@ export class SignUpComponent {
     
   }
 
+
+
+  async onRegister2(): Promise<void> {
+    let payload = {
+      email: this.formLogin.controls.Correo.value,
+      password: this.formLogin.controls.Password.value
+    }
+    try {
+      await this.authService.register2(payload.email, payload.password);
+      toast.success('Creado correctamente!');
+    } catch (error) {
+      toast.error('A ocurrido un error!')
+    }
+  }
 
 }

@@ -1,21 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { DialogCreateEmpresaComponent } from '../../../../shared/components/dialogs/dialog-create-empresa/dialog-create-empresa.component';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { MenuItem } from 'primeng/api';
 import { MenuModule } from 'primeng/menu';
 import { CommonModule } from '@angular/common';
 import { DialogConfirmacionComponent } from '../../../../shared/components/dialogs/dialog-confirmacion/dialog-confirmacion.component';
+import { UsersService } from '../../../../core/services/modules/users.service';
 
 @Component({
-  selector: 'app-empresas',
+  selector: 'app-usuarios',
   standalone: true,
   imports: [CommonModule, MenuModule],
-  templateUrl: './empresas.component.html',
-  styleUrl: './empresas.component.scss',
+  templateUrl: './usuarios.component.html',
+  styleUrl: './usuarios.component.scss',
   providers: [DialogService],
 })
-export class EmpresasComponent implements OnInit {
+export class UsuariosComponent implements OnInit {
   ref: DynamicDialogRef | undefined;
+
+  usuarios: any[] = [];
+
+  private _userservice = inject(UsersService);
 
   dataEdit = {
     nombre: 'cascasc',
@@ -51,9 +56,31 @@ export class EmpresasComponent implements OnInit {
       // { separator: true },
       // { label: 'Setup', icon: 'pi pi-cog', routerLink: ['/setup'] }
     ];
-  }
+    // let user: any = this._userservice.getUsers();
+    // this._userservice.getUsers().subscribe((rest:any) => {
+    //   console.log("🚀 ~ UsuariosComponent ~ this._userservice.getUsers ~ rest:", rest)
+    // });
+    // this._userservice.getUsers().subscribe(rest => {
+    //   console.log('rest',rest);
+    //   this.usuarios = rest;
+    // });
 
-  getEmployer() {}
+
+    // this._userservice.getCollectionData('').subscribe(rest => {
+    //   console.log('rest1',rest);
+    //   this.usuarios = rest;
+    // })
+
+
+    this._userservice.getFilteredDataUsers('UID', 'I4jCNYvYktWmkODwojZIIsvRQIw1').subscribe((restFilter: any) => {
+      console.log("🚀 ~ UsuariosComponent ~ this._userservice.getFilteredData ~ restFilter:", restFilter);
+      this.usuarios = restFilter;
+    });
+      
+
+    
+  }
+    
 
   show(edit?: boolean, data?: any) {
     this.ref = this.dialogService.open(DialogCreateEmpresaComponent, {
