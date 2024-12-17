@@ -1,0 +1,19 @@
+.acciones {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+}
+
+@keyframes pop{
+  100%{
+    transform: none;
+    opacity: 1;
+  }
+}
+
+p-button {
+    padding: 10px;
+}
+ 

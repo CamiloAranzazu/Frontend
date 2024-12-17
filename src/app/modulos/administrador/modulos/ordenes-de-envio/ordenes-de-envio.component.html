@@ -1,0 +1,307 @@
+<section id="content">
+<main>
+    <div class="head-title">
+      <div class="left">
+        <h1>ORDENES DE ENVIO</h1>
+        <ul class="breadcrumb">
+          <li>
+            <a >ADMINISTRADOR</a>
+          </li>
+          <li><i class='bx bx-chevron-right' ></i></li>
+          <li>
+            <a class="active" >ORDENES DE ENVIO</a>
+          </li>
+        </ul>
+      </div>
+      <a  class="btn-download">
+        <i class='bx bxs-add-to-queue' ></i>
+        <span class="text">CREAR ORDEN</span>
+      </a>
+    </div>
+
+    <ul class="box-info">
+      <li [ngClass]="tabEstado === 'ordenes'? 'active':''" (click)="changeTabEstado('ordenes')">
+        <i class='bx bxs-shopping-bag-alt' ></i>
+        <span class="text">
+          <p>Ordenes</p>
+        </span>
+      </li>
+      <li [ngClass]="tabEstado === 'aceptadas'? 'active':''" (click)="changeTabEstado('aceptadas')">
+        <i class='bx bxs-calendar-check' ></i>
+        <span class="text">
+          <p>Aceptadas</p>
+        </span>
+      </li>
+      <li [ngClass]="tabEstado === 'enCamino'? 'active':''" (click)="changeTabEstado('enCamino')">
+        <i class='bx bxs-map-pin'></i>
+        <span class="text">
+          <p>En Camino</p>
+        </span>
+      </li>
+      <li [ngClass]="tabEstado === 'entregado'? 'active':''" (click)="changeTabEstado('entregado')">
+        <i class='bx bxs-check-shield'></i>
+        <span class="text">
+          <p>Entregado</p>
+        </span>
+      </li>
+    </ul>
+
+
+    <div class="table-data">
+        @if (tabEstado === 'ordenes') {
+            <div class="order">
+                <div class="head">
+                  <h3>ORDENES</h3>
+                  <i class='bx bx-revision'></i>
+                </div>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Fecha Orden</th>
+                      <th>Empresa</th>
+                      <th>Estado</th>
+                      <th>Descripción</th>
+                      <th>Cantidad</th>
+                      <th>Costos</th>
+                      <th>Datos de entrega</th>
+                      <th>Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>01-10-2023</td>
+                      <td>
+                        <div class="userOrder">
+                          <img src="https://secure.gravatar.com/avatar/d09eaad01aea86c51b4f892b4f8abf6f?s=100&d=wavatar&r=g">
+                          <div>
+                            <p style="font-weight: 600;">PROGETTO ANGEL</p>
+                            <p>David rozo</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td><div class="chipsEstados orange">Pendiente por aceptar</div></td>
+                      <td>Zapatillas NIKE con pantufal de locos</td>
+                      <td>1</td>
+                      <td>
+                        <div class="costos">
+                          <div>Pedido: {{'$350.000'}}</div>
+                          <div>Domicilio: {{'$10.000'}}</div>
+                          <div>Total: {{'$360.000'}}</div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="userDestinatario">
+                          <div>JUAN CARLOS</div>
+                          <div>32237618898</div>
+                          <div>SAN CRISTIBOL</div>
+                          <div>GUACAMALLAS</div>
+                          <div>CALLE 12 #12-22 sur</div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="btnsEstados yellow">ACEPTAR</div>
+                        <div class="btnsEstados red">CANCELAR</div>
+                      </td>
+                    </tr>
+                    <tr>
+                  </tbody>
+                </table>
+            </div>
+        } @else if(tabEstado === 'aceptadas') {
+          <div class="order">
+            <div class="head">
+              <h3>ACEPTADAS</h3>
+              <i class='bx bx-revision'></i>
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Fecha Orden</th>
+                  <th>Empresa</th>
+                  <th>Estado</th>
+                  <th>Descripción</th>
+                  <th>Cantidad</th>
+                  <th>Costos</th>
+                  <th>Datos de entrega</th>
+                  <th>Documentos</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>01-10-2023</td>
+                  <td>
+                    <div class="userOrder">
+                      <img src="https://secure.gravatar.com/avatar/d09eaad01aea86c51b4f892b4f8abf6f?s=100&d=wavatar&r=g">
+                      <div>
+                        <p style="font-weight: 600;">PROGETTO ANGEL</p>
+                        <p>David rozo</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td><div class="chipsEstados yellow">Aceptada</div></td>
+                  <td>Zapatillas NIKE con pantufal de locos</td>
+                  <td>1</td>
+                  <td>
+                    <div class="costos">
+                      <div>Pedido: {{'$350.000'}}</div>
+                      <div>Domicilio: {{'$10.000'}}</div>
+                      <div>Total: {{'$360.000'}}</div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="userDestinatario">
+                      <div>JUAN CARLOS</div>
+                      <div>32237618898</div>
+                      <div>SAN CRISTIBOL</div>
+                      <div>GUACAMALLAS</div>
+                      <div>CALLE 12 #12-22 sur</div>
+                    </div>
+                  </td>
+                  <td>DOCUMENTOS</td>
+                  <td>
+                    <div class="btnsEstados blue">ENVIAR</div>
+                    <div class="btnsEstados red">CANCELAR</div>
+                  </td>
+                </tr>
+                <tr>
+              </tbody>
+            </table>
+        </div>
+        } @else if(tabEstado === 'enCamino') {
+          <div class="order">
+            <div class="head">
+              <h3>EN CAMINO</h3>
+              <i class='bx bx-revision'></i>
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Fecha Orden</th>
+                  <th>Empresa</th>
+                  <th>Estado</th>
+                  <th>Descripción</th>
+                  <th>Cantidad</th>
+                  <th>Costos</th>
+                  <th>Datos de entrega</th>
+                  <th>Domiciliario</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>01-10-2023</td>
+                  <td>
+                    <div class="userOrder">
+                      <img src="https://secure.gravatar.com/avatar/d09eaad01aea86c51b4f892b4f8abf6f?s=100&d=wavatar&r=g">
+                      <div>
+                        <p style="font-weight: 600;">PROGETTO ANGEL</p>
+                        <p>David rozo</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td><div class="chipsEstados blue">En Camino</div></td>
+                  <td>Zapatillas NIKE con pantufal de locos</td>
+                  <td>1</td>
+                  <td>
+                    <div class="costos">
+                      <div>Pedido: {{'$350.000'}}</div>
+                      <div>Domicilio: {{'$10.000'}}</div>
+                      <div>Total: {{'$360.000'}}</div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="userDestinatario">
+                      <div>JUAN CARLOS</div>
+                      <div>32237618898</div>
+                      <div>SAN CRISTIBOL</div>
+                      <div>GUACAMALLAS</div>
+                      <div>CALLE 12 #12-22 sur</div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="listData">
+                      <div>Melany Vasquez</div>
+                      <div>32293818282</div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="btnsEstados morado">ENTREGAR</div>
+                    <div class="btnsEstados red">CANCELAR</div>
+                  </td>
+                </tr>
+                <tr>
+              </tbody>
+            </table>
+        </div>
+        } @else if(tabEstado === 'entregado') {
+          <div class="order">
+            <div class="head">
+              <h3>ENTREGADAS</h3>
+              <i class='bx bx-revision'></i>
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Fecha Orden</th>
+                  <th>Empresa</th>
+                  <th>Estado</th>
+                  <th>Descripción</th>
+                  <th>Cantidad</th>
+                  <th>Costos</th>
+                  <th>Datos de entrega</th>
+                  <th>Domiciliario</th>
+                  <th>Documentos</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>01-10-2023</td>
+                  <td>
+                    <div class="userOrder">
+                      <img src="https://secure.gravatar.com/avatar/d09eaad01aea86c51b4f892b4f8abf6f?s=100&d=wavatar&r=g">
+                      <div>
+                        <p style="font-weight: 600;">PROGETTO ANGEL</p>
+                        <p>David rozo</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td><div class="chipsEstados morado">Entregado</div></td>
+                  <td>Zapatillas NIKE con pantufal de locos</td>
+                  <td>1</td>
+                  <td>
+                    <div class="costos">
+                      <div>Pedido: {{'$350.000'}}</div>
+                      <div>Domicilio: {{'$10.000'}}</div>
+                      <div>Total: {{'$360.000'}}</div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="userDestinatario">
+                      <div>JUAN CARLOS</div>
+                      <div>32237618898</div>
+                      <div>SAN CRISTIBOL</div>
+                      <div>GUACAMALLAS</div>
+                      <div>CALLE 12 #12-22 sur</div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="listData">
+                      <div>Melany Vasquez</div>
+                      <div>32293818282</div>
+                    </div>
+                  </td>
+                  <td>DOCUMENTOS</td>
+                  <td>
+                    <i style="font-size: 20px; cursor: pointer;" class='bx bx-dots-vertical-rounded'></i>
+                  </td>
+                </tr>
+                <tr>
+              </tbody>
+            </table>
+        </div>
+        }
+      
+    </div>
+</main>
+</section>

@@ -13,5 +13,5 @@ export interface Producto {
     tallaUnica: boolean;
     tallas: string[];
     cantidad: number;
-    tallaSeleccionada?: string;
+    tallaSeleccionada: string;
 }

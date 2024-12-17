@@ -211,3 +211,11 @@ body {
 .main-content, #section2 {
   height:100vh;
 }
+
+
+.carrito {
+  ::ng-deep .p-tag {
+    background-color: #3B82F6 !important;
+  }
+}
+

@@ -1,0 +1,82 @@
+:host {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(#6D58FF, 0.5);
+    height: 100vh;
+    width: 100vw;
+    display: none;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    z-index: 9000;
+    &,
+    * {
+        transition: 300ms;
+    }
+    .jobs {
+        padding: 25px;
+    }
+    .job-item {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    span.job-title,
+    span.job-description {
+        padding: 10px;
+    }
+    span.job-code {
+        font-weight: bolder;
+    }
+    .job-item:nth-child(1) {
+        color: rgba(244, 244, 244, 1);
+    }
+    .job-item:nth-child(2) {
+        color: rgba(244, 244, 244, 0.8);
+    }
+    .job-item:nth-child(3) {
+        color: rgba(244, 244, 244, 0.6);
+    }
+    .job-item:nth-child(4) {
+        color: rgba(244, 244, 244, 0.4);
+    }
+    .job-item:nth-child(5) {
+        color: rgba(244, 244, 244, 0.2);
+    }
+    .job-item:nth-child(n + 6) {
+        color: rgba(244, 244, 244, 0) !important;
+    }
+}
+
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  background-color: #333;
+
+  margin: 100px auto;
+  -webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;
+  animation: sk-rotateplane 1.2s infinite ease-in-out;
+}
+
+@-webkit-keyframes sk-rotateplane {
+  0% { -webkit-transform: perspective(120px) }
+  50% { -webkit-transform: perspective(120px) rotateY(180deg) }
+  100% { -webkit-transform: perspective(120px) rotateY(180deg)  rotateX(180deg) }
+}
+
+@keyframes sk-rotateplane {
+  0% { 
+    transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg) 
+  } 50% { 
+    transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg) 
+  } 100% { 
+    transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+    -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+  }
+}
+

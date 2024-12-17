@@ -38,7 +38,8 @@ h1 {
       margin: 10px 0px 10px 0px;
       border: none;
       // background-color: #e0e0e0;
-      background-color: #eaeaea;
+      background-color: #F8FAFC;
+      
       border-radius: 1rem;
       box-shadow: -1px 3px 3px 1px rgba(128,128,128,.3),
         -3px -3px 6px rgba(255,255,255,.3) !important;
@@ -47,7 +48,7 @@ h1 {
         opacity: 0.9;
       }
       &:hover {
-        background-color: #eaeaea;
+        background-color: #F8FAFC;
         box-shadow: -1px 3px 3px 1px rgba(128,128,128,.5),
         -3px -3px 6px rgba(255,255,255,.5) !important;
         img {
@@ -140,6 +141,15 @@ h1 {
         width: 25%;
     }
   }
+
+  .textTotal {
+    ::ng-deep .p-tag {
+      color: #000000;
+      background-color: white;
+      font-size: 18px;
+    }
+  }
+  
   
   @media (min-width: 1px) and (max-width: 400px) {
     .products {
@@ -195,3 +205,149 @@ h1 {
     }
   }
   
+
+        
+  .btnPay{
+      margin-bottom: 8px;    
+      animation: float 2s ease-in infinite;
+      z-index: 1;
+      ::ng-deep .p-tag {
+        background-color: #ffaf29 !important;
+      }
+  }
+
+
+@keyframes float {
+	0% {
+		transform: translatey(0px);
+	}
+	50% {
+		transform: translatey(-6px);
+	}
+	100% {
+		transform: translatey(0px);
+	}
+}
+
+// preloader start
+
+.preloader {
+	position: relative;
+	width: 80px;
+	margin: 0 auto;
+}
+.preloader .first {
+	right: 0;
+	width: 80px;
+	height: 35px;
+	border: 8px solid #000;
+	border-radius: 50px;
+	position: absolute;
+	animation: preload 10s infinite;
+}
+.preloader .second {
+	position: absolute;
+	top: 43px;
+	right: 43px;
+	display: block;
+	width: 35px;
+	height: 35px;
+	border: 8px solid #000;
+	border-radius: 50px;
+	animation: preload2 10s infinite;
+}
+.preloader .third {
+	position: absolute;
+	top: 43px;
+	right: 0;
+	display: block;
+	width: 35px;
+	height: 35px;
+	border: 8px solid #000;
+	border-radius: 50px;
+	animation: preload3 10s infinite;
+}
+
+@keyframes preload {
+	0%   	{top: 0px;	right: 0px;width: 80px;height: 35px;}
+	4.16%  	{top: 0px; 	right: 0;width: 35px;height: 35px;}
+  	8.33%  	{top: 0px; 	right: 0;width: 35px;height: 35px;}
+  	12.49%  {top: 0px; 	right: 0;width: 35px;height: 35px;}
+  	16.66%  {top: 0px; 	right: 0;width: 35px;height: 35px;}
+  	20.83% 	{top: 0px; 	right: 0;width: 35px;height: 35px;}
+  	24.99% 	{top: 0px; 	right: 0;width: 35px;height: 80px;}
+  	29.16% 	{top: 43px; right: 0;width: 35px;height: 35px;}
+  	33.32% 	{top: 43px; right: 0;width: 35px;height: 35px;}
+  	37.49% 	{top: 43px; right: 0;width: 35px;height: 35px;}
+  	41.66% 	{top: 43px; right: 0;width: 35px;height: 35px;}
+  	45.82% 	{top: 43px; right: 0;width: 35px;height: 35px;}
+  	49.99% 	{top: 43px; right: 0;width: 80px;height: 35px;}
+  	54.15% 	{top: 43px; right: 43px;width: 35px;height: 35px;}
+  	58.32% 	{top: 43px; right: 43px;width: 35px;height: 35px;}
+  	62.49% 	{top: 43px; right: 43px;width: 35px;height: 35px;}
+  	66.65% 	{top: 43px; right: 43px;width: 35px;height: 35px;}
+  	70.82% 	{top: 43px; right: 43px;width: 35px;height: 35px;}
+  	74.98% 	{top: 0px; right: 43px;width: 35px;height: 80px;}
+  	79.15% 	{top: 0px; 	right: 43px;width: 35px;height: 35px;}
+  	83.32% 	{top: 0px; 	right: 43px;width: 35px;height: 35px;}
+  	87.48% 	{top: 0px; 	right: 43px;width: 35px;height: 35px;}
+  	91.65% 	{top: 0px; 	right: 43px;width: 35px;height: 35px;}
+  	95.81% 	{top: 0px; 	right: 43px;width: 35px;height: 35px;}
+  	100% 	{top: 0px;	right: 0px;width: 80px;height: 35px;}
+}
+@keyframes preload2 {
+	0%   	{top: 43px; right: 43px;width: 35px;height: 35px;}
+	4.16%  	{top: 43px; right: 43px;width: 35px;height: 35px;}
+  	8.33%  	{top: 0px; right: 43px;width: 35px;height: 80px;}
+  	12.49%  {top: 0px; right: 43px;width: 35px;height: 35px;}
+  	16.66%  {top: 0px; right: 43px;width: 35px;height: 35px;}
+  	20.83% 	{top: 0px; right: 43px;width: 35px;height: 35px;}
+  	24.99% 	{top: 0px; right: 43px;width: 35px;height: 35px;}
+  	29.16% 	{top: 0px; right: 43px;width: 35px;height: 35px;}
+  	33.32% 	{top: 0px; right: 0px;width: 80px;height: 35px;}
+  	37.49% 	{top: 0px; right: 0px;width: 35px;height: 35px;}
+  	41.66% 	{top: 0px; right: 0px;width: 35px;height: 35px;}
+  	45.82% 	{top: 0px; right: 0px;width: 35px;height: 35px;}
+  	49.99% 	{top: 0px; right: 0px;width: 35px;height: 35px;}
+  	54.15% 	{top: 0px; right: 0px;width: 35px;height: 35px;}
+  	58.32% 	{top: 0px; right: 0px;width: 35px;height: 80px;}
+  	62.49% 	{top: 43px; right: 0px;width: 35px;height: 35px;}
+  	66.65% 	{top: 43px; right: 0px;width: 35px;height: 35px;}
+  	70.82% 	{top: 43px; right: 0px;width: 35px;height: 35px;}
+  	74.98% 	{top: 43px; right: 0px;width: 35px;height: 35px;}
+  	79.15% 	{top: 43px; right: 0px;width: 35px;height: 35px;}
+  	83.32% 	{top: 43px; right: 0px;width: 80px;height: 35px;}
+  	87.48% 	{top: 43px; right: 43px;width: 35px;height: 35px;}
+  	91.65% 	{top: 43px; right: 43px;width: 35px;height: 35px;}
+  	95.81% 	{top: 43px; right: 43px;width: 35px;height: 35px;}
+  	100% 	{top: 43px; right: 43px;width: 35px;height: 35px;}
+}
+@keyframes preload3 {
+	0%   	{top: 43px; right: 0px;width: 35px;height: 35px;}
+	4.16%  	{top: 43px; right: 0px;width: 35px;height: 35px;}
+  	8.33%  	{top: 43px; right: 0px;width: 35px;height: 35px;}
+  	12.49%  {top: 43px; right: 0px;width: 35px;height: 35px;}
+  	16.66%  {top: 43px; right: 0px;width: 80px;height: 35px;}
+  	20.83% 	{top: 43px; right: 43px;width: 35px;height: 35px;}
+  	24.99% 	{top: 43px; right: 43px;width: 35px;height: 35px;}
+  	29.16% 	{top: 43px; right: 43px;width: 35px;height: 35px;}
+  	33.32% 	{top: 43px; right: 43px;width: 35px;height: 35px;}
+  	37.49% 	{top: 43px; right: 43px;width: 35px;height: 35px;}
+  	41.66% 	{top: 0px; right: 43px;width: 35px;height: 80px;}
+  	45.82% 	{top: 0px; right: 43px;width: 35px;height: 35px;}
+  	49.99% 	{top: 0px; right: 43px;width: 35px;height: 35px;}
+  	54.15% 	{top: 0px; right: 43px;width: 35px;height: 35px;}
+  	58.32% 	{top: 0px; right: 43px;width: 35px;height: 35px;}
+  	62.49% 	{top: 0px; right: 43px;width: 35px;height: 35px;}
+  	66.65% 	{top: 0px; 	right: 0px;width: 80px;height: 35px;}
+  	70.82% 	{top: 0px; 	right: 0px;width: 35px;height: 35px;}
+  	74.98% 	{top: 0px; 	right: 0px;width: 35px;height: 35px;}
+  	79.15% 	{top: 0px; 	right: 0px;width: 35px;height: 35px;}
+  	83.32% 	{top: 0px; 	right: 0px;width: 35px;height: 35px;}
+  	87.48% 	{top: 0px; 	right: 0px;width: 35px;height: 35px;}
+  	91.65% 	{top: 0px; 	right: 0px;width: 35px;height: 80px;}
+  	95.81% 	{top: 43px; 	right: 0px;width: 35px;height: 35px;}
+  	100% 	{top: 43px; right: 0px;width: 35px;height: 35px;;}
+}
+
+// preloader fin 

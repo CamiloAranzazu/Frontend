@@ -1,0 +1,33 @@
+<section id="content">
+  <nav>
+    <!-- <i (click)="addToggle()" class='bx bx-menu' ></i> -->
+    <div (click)="addToggle()" class="menuPadre">
+      <div
+        class="menu btnMenu"
+        [ngClass]="toglle === true ? 'open' : ''"
+        data-menu="10"
+      >
+        <div class="icon"></div>
+      </div>
+    </div>
+    <!-- <a  class="nav-link">Categories</a> -->
+    <form action="#">
+      <div class="form-input">
+        <input type="search" placeholder="Search..." />
+        <button type="button" class="search-btn">
+          <i class="bx bx-search"></i>
+        </button>
+      </div>
+    </form>
+    <!-- <a  class="notification">
+            <i class='bx bxs-bell' ></i>
+            <span class="num">8</span>
+        </a> -->
+    <a class="profile" (click)="menu2.toggle($event)">
+      <img
+        src="https://secure.gravatar.com/avatar/d09eaad01aea86c51b4f892b4f8abf6f?s=100&d=wavatar&r=g"
+      />
+    </a>
+    <p-menu #menu2 appendTo="body" [model]="items" [popup]="true"></p-menu>
+  </nav>
+</section>

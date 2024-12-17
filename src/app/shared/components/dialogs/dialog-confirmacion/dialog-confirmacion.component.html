@@ -1,0 +1,16 @@
+<div class="card">
+    @if (config.data.mensaje) {
+        <div style="padding: 10px;">
+            {{config.data.mensaje || ''}}
+        </div>
+    }
+    @if (config.data.pregunta) {
+        <div style="padding: 10px;">
+            {{config.data.pregunta || ''}}
+        </div>
+    }
+    <div class="acciones">
+        <p-button (onClick)="cancelar()" label="{{config.data.txtCancelar || 'Cancelar'}}" styleClass="p-button-raised p-button-text p-button-danger"></p-button>
+        <p-button (onClick)="confirmacion()" label="{{config.data.txtConfirmar || 'Aceptar'}}" styleClass="p-button-raised p-button-text p-button-info"></p-button>
+    </div>
+</div>

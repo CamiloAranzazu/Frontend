@@ -1,0 +1,326 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+$poppins: 'Poppins', sans-serif;
+$lato: 'Lato', sans-serif;
+$light: #F9F9F9;
+$blue: #3C91E6;
+$light-blue: #CFE8FF;
+$grey: #eee;
+$dark-grey: #AAAAAA;
+$dark: #342E37;
+$red: #DB504A;
+$greend: #DB504A;
+$morado: #6140DC;
+$light-morado: #cbc8fb;
+$yellow: #FFCE26;
+$light-yellow: #FFF2C6;
+$orange: #FD7238;
+$light-orange: #FFE0D3;
+
+/* MAIN */
+#content main {
+    width: 100%;
+    padding: 36px 24px;
+    font-family: $poppins;
+    max-height: calc(100vh - 56px);
+    overflow-y: auto;
+  }
+  #content main .head-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    grid-gap: 16px;
+    flex-wrap: wrap;
+  }
+  #content main .head-title .left h1 {
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: $dark;
+  }
+  #content main .head-title .left .breadcrumb {
+    display: flex;
+    align-items: center;
+    grid-gap: 16px;
+  }
+  #content main .head-title .left .breadcrumb li {
+    color: $dark;
+  }
+  #content main .head-title .left .breadcrumb li a {
+    color: $dark-grey;
+    pointer-events: none;
+  }
+  #content main .head-title .left .breadcrumb li a.active {
+    color: $blue;
+    pointer-events: unset;
+  }
+  #content main .head-title .btn-download {
+    height: 36px;
+    padding: 0 16px;
+    border-radius: 36px;
+    background: $blue;
+    color: $light;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-gap: 10px;
+    font-weight: 500;
+  }
+  
+  
+  
+  
+  #content main .box-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-gap: 24px;
+    margin-top: 36px;
+  }
+  #content main .box-info li {
+    padding: 12px;
+    background: $light;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    grid-gap: 12px;
+    cursor: pointer;
+  }
+
+  #content main .box-info .active {
+    border: 3px solid #3C91E6;
+  }
+
+  #content main .box-info li .bx {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    font-size: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #content main .box-info li:nth-child(1) .bx {
+    background: $light-orange;
+    color: $orange;
+  }
+  #content main .box-info li:nth-child(2) .bx {
+    background: $light-yellow;
+    color: $yellow;
+  }
+  #content main .box-info li:nth-child(3) .bx {
+    background: $light-blue;
+    color: $blue;
+  }
+  #content main .box-info li:nth-child(4) .bx {
+    background: $light-morado;
+    color: $morado;
+  }
+  #content main .box-info li .text h3 {
+    font-size: 24px;
+    font-weight: 600;
+    color: $dark;
+  }
+  #content main .box-info li .text p {
+    color: $dark;  
+  }
+  
+  
+  
+  
+  #content main .table-data {
+    display: flex;
+    flex-wrap: wrap;
+    grid-gap: 24px;
+    margin-top: 24px;
+    width: 100%;
+    color: $dark;
+  }
+  #content main .table-data > div {
+    border-radius: 20px;
+    background: $light;
+    padding: 24px;
+    overflow-x: auto;
+  }
+  #content main .table-data .head {
+    display: flex;
+    align-items: center;
+    grid-gap: 16px;
+    margin-bottom: 24px;
+  }
+  #content main .table-data .head h3 {
+    margin-right: auto;
+    font-size: 24px;
+    font-weight: 600;
+  }
+  #content main .table-data .head .bx {
+    cursor: pointer;
+  }
+  
+  #content main .table-data .order {
+    flex-grow: 1;
+    flex-basis: 500px;
+  }
+  #content main .table-data .order table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  #content main .table-data .order table th {
+    padding: 12px;
+    font-size: 13px;
+    text-align: left;
+    border-bottom: 1px solid $grey;
+    text-align: center;
+  }
+  #content main .table-data .order table td {
+    padding: 12px;
+    font-size: 12px;
+    text-align: center;
+  }
+  #content main .table-data .order table tr td:first-child {
+    // display: flex;
+    // align-items: center;
+    grid-gap: 12px;
+    padding-left: 6px;
+  }
+  #content main .table-data .order table td img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  #content main .table-data .order table tbody tr:hover {
+    background: $grey;
+  }
+  #content main .table-data .order table tr td .status {
+    font-size: 10px;
+    padding: 6px 16px;
+    color: $light;
+    border-radius: 20px;
+    font-weight: 700;
+  }
+  #content main .table-data .order table tr td .status.completed {
+    background: $orange;
+  }
+  #content main .table-data .order table tr td .status.process {
+    background: $yellow;
+  }
+  #content main .table-data .order table tr td .status.pending {
+    background: $orange;
+  }
+  
+  
+  #content main .table-data .todo {
+    flex-grow: 1;
+    flex-basis: 300px;
+  }
+  #content main .table-data .todo .todo-list {
+    width: 100%;
+  }
+  #content main .table-data .todo .todo-list li {
+    width: 100%;
+    margin-bottom: 16px;
+    background: $grey;
+    border-radius: 10px;
+    padding: 14px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  #content main .table-data .todo .todo-list li .bx {
+    cursor: pointer;
+  }
+  #content main .table-data .todo .todo-list li.completed {
+    border-left: 10px solid $blue;
+  }
+  #content main .table-data .todo .todo-list li.not-completed {
+    border-left: 10px solid $orange;
+  }
+  #content main .table-data .todo .todo-list li:last-child {
+    margin-bottom: 0;
+  }
+  /* MAIN */
+
+
+
+ /* TABLA ORDENS */
+  
+  .userOrder {
+    display: flex;
+    align-items: center;
+    min-width: 180px;
+    img {
+      margin-right: 3px;
+    }
+  }
+  .userDestinatario {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .listData {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .chipsEstados {
+    font-size: 10px;
+    padding: 6px 16px;
+    color: white;
+    border-radius: 20px;
+    font-weight: 700;
+  }
+
+  .btnsEstados {
+    font-size: 10px;
+    padding: 6px 16px;
+    color: white;
+    border-radius: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+
+  .costos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 180px;
+  }
+
+
+  /* TABLA ORDENS */
+
+  // colores estados
+
+  .orange {
+    background-color: $orange;
+  }
+
+  .red {
+    background-color: $red;
+  }
+
+  .yellow {
+    background-color: $yellow;
+  }
+
+  .blue {
+    background-color: $blue;
+  }
+
+  .morado {
+    background-color: $morado;
+  }
