@@ -10,7 +10,7 @@ import {
   updateProfile,
   getAuth,
 } from '@angular/fire/auth';
-import { collection, Firestore, addDoc } from '@angular/fire/firestore';
+import { collection, Firestore, addDoc, doc, setDoc } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 
 export interface User {
@@ -78,7 +78,7 @@ export class AuthService {
 
 
   // Register a user with additional parameters
-  async register2(
+  async register(
     email: string,
     password: string,
     additionalData?: { displayName?: string; role?: string }
@@ -92,7 +92,18 @@ export class AuthService {
 
       // Store additional user data in Firestore
       if (userCredential.user) {
-        const uid = userCredential.user.uid;
+        const user = userCredential.user;
+
+        // Opcional: Actualizar el perfil del usuario
+      await updateProfile(user, { displayName: 'TestCompany' });
+
+      // Guardar datos adicionales en Firestore
+      const userRef = doc(this._firestore, `users/${user.uid}`);
+      await setDoc(userRef, {
+        email: user.email,
+        company: 'TestCompany',
+        createdAt: new Date(),
+      });
 
         // // Save user data to Firestore
         // await this._collectionUser.addDoc(uid).set({

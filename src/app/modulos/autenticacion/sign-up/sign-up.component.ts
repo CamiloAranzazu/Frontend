@@ -61,7 +61,7 @@ export class SignUpComponent {
       password: this.formLogin.controls.Password.value
     }
     try {
-      await this.authService.register2(payload.email, payload.password);
+      await this.authService.register(payload.email, payload.password);
       toast.success('Creado correctamente!');
     } catch (error) {
       toast.error('A ocurrido un error!')
