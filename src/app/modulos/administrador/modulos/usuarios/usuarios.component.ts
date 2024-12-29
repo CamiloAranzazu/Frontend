@@ -6,6 +6,7 @@ import { MenuModule } from 'primeng/menu';
 import { CommonModule } from '@angular/common';
 import { DialogConfirmacionComponent } from '../../../../shared/components/dialogs/dialog-confirmacion/dialog-confirmacion.component';
 import { UsersService } from '../../../../core/services/modules/users.service';
+import { CrudCommonFirebaseService } from '../../../../core/services/modules/crud-common-firebase.service';
 
 @Component({
   selector: 'app-usuarios',
@@ -20,7 +21,7 @@ export class UsuariosComponent implements OnInit {
 
   usuarios: any[] = [];
 
-  private _userservice = inject(UsersService);
+  private _crudCommonFirebaseService = inject(CrudCommonFirebaseService);
 
   dataEdit = {
     nombre: 'cascasc',
@@ -72,13 +73,19 @@ export class UsuariosComponent implements OnInit {
     // })
 
 
-    this._userservice.getFilteredDataUsers('UID', 'I4jCNYvYktWmkODwojZIIsvRQIw1').subscribe((restFilter: any) => {
-      console.log("🚀 ~ UsuariosComponent ~ this._userservice.getFilteredData ~ restFilter:", restFilter);
-      this.usuarios = restFilter;
-    });
-      
-
+    this.getUsers();
     
+  }
+
+  async getUsers() {
+    try {
+      // Obtener documentos filtrados de la colección "productos"
+      let data = await this._crudCommonFirebaseService.getFilteredDocuments('usersTest', 'UID', '1Sh65lqPmtT4cSgq4nSaHOVYzcl2');
+      console.log('data',data);
+      data !== undefined ? this.usuarios = data: '';
+    } catch (error) {
+      console.error('Error fetching documents:', error);
+    }
   }
     
 
